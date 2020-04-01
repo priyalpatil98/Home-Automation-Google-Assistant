@@ -1,0 +1,86 @@
+1. Board Preferences:- http://arduino.esp8266.com/stable/package_esp8266com_index.json
+then go to tools>board>board manager
+search for esp8266 and then install
+
+2. Select tools>boards>NodeMCU 0.9
+Select port.
+if port is not visible then check for drivers
+USB Driver and USB to UART Driver
+
+USB Driver:- 
+https://sparks.gogo.co.nz/ch340.html
+
+USB to UART Driver:-
+https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
+
+3. Built-in LED Glow
+File>Example>ESP8266>Blink
+Compile and upload
+Change the values and run again.
+
+4. External LED
+Connect the simple circuit and run the code.
+
+5. External LED 2 at once
+Connect them in series and run the code.
+
+6. Controlling through web server
+Provide them a code and explain them the code.
+Then upload and observe the serial monitor.
+Check the baud rate if error occurs.
+If still error continues then download 8266 NodeMCU Library
+NodeMCU Libraries:-
+https://github.com/esp8266/Arduino
+
+7. Control through Blynk app.
+Download the blynk app from playstore
+register with your email account(prefer gmail over facebook)
+then click on Create
+Give name to project
+select board as nodemcu
+choose wifi type
+click create to finish
+then blynk will send a auth code to your emailid registered now.
+Copy that code for futher use
+
+Add button to your project
+click on button and rename it with whatever you want
+select digital pin d3
+change the output from 0 - 1 to 1 - 0
+and change mode from push to switch
+
+open mail and copy the auth code
+download blynk library and install
+Blynk Libraries:- https://github.com/blynkkk/blynk-library/release
+extract the zip file
+copy the files and paste in Arduino folder in the documents folder
+now open arduino ide and go to file->examples->blynk->boards_wifi->esp8266_standalone
+run the code and change the credentials properly using auth code.
+now tap play button to start and power the nodemcu.
+
+8. Google Assistance Blynk and IFTTT Connection
+Go to IFTTT
+click on create
+click on "+ this" and search google assistance
+select say a phrase
+type in the phrases you wish to say
+write the response you wish from google assistance
+click on create trigger
+
+
+then click on "+ that" and search for webhooks
+WebHooks is a tool which allow us to send a web request to blynk app
+then click on make a web request
+copy blynk url:- 
+Blynk Server (INDIA):-
+http://188.166.206.43/authcode/update/D0
+*NOTE:- D3 pin of nodemcu corresponds to D0 pin of arduino
+select Put
+select application/json
+write ["0"] to turn on the switch 
+*{Body =["0"] ( Here 0 means to turn on digital pin D3 for Google Assistance)}
+repeat same for turning off with ["1"] and save
+
+then go to arduino IDE and select file>examples>Blynk>Boards_Wifi>ESP8266_Standalone
+run that code on nodemcu changing the username,password of wifi and the auth token recieved via email.
+
